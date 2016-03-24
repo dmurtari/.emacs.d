@@ -1,0 +1,44 @@
+((("hour" .
+   [1 0 0 0])
+  ("now" .
+   [1 0 0])
+  ("speed_tweet" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("converted_distance" .
+   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0])
+  ("convertFeetToMiles" .
+   [0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0])
+  ("distance_tweet" .
+   [1 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("convert" .
+   [1 0 0 0 0 0 0])
+  ("feet" .
+   [3 0 0 0])
+  ("distance" .
+   [5 0 0 0 0 0 0 0])
+  ("top_speed" .
+   [1 0 0 0 0 0 0 0 0])
+  ("top" .
+   [1 0 0])
+  ("total_distance" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("tweet" .
+   [1 0 0 0 0])
+  ("tweeter" .
+   [1 0 0 0 0 0 0])
+  ("speed" .
+   [3 0 0 0 0])
+  ("setq" .
+   [1 0 0 0])
+  ("setq-default" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("indent-tabs-mode" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("inhibit-startup-hooks" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("inhibit-startup-message" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("text" .
+   [1 0 0 0])
+  ("invite" .
+   [1 0 0 0 0 0])))
