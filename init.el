@@ -16,6 +16,8 @@
 
 ;; Mode Settings
 (global-git-gutter-mode t)
+(indent-guide-global-mode)
+(setq indent-guide-recursive t)
 
 ;; Defaults
 (setq-default column-number-mode t)
