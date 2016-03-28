@@ -8,9 +8,13 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+
 ;; Mode Settings
-(global-whitespace-mode t)
-(setq whitespace-action '(auto-cleanup))
 (global-git-gutter-mode t)
 
 ;; Defaults
@@ -29,3 +33,4 @@
 
 ;; Keybindings
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
