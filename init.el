@@ -14,6 +14,9 @@
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;; Mode Settings
 (global-git-gutter-mode t)
 (indent-guide-global-mode)
