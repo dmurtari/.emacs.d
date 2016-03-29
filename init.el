@@ -5,28 +5,34 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(require 'auto-complete-config)
-(ac-config-default)
+;; Company Mode Config
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq company-idle-delay 0)
 
-;; Web Mode Settings
+;; Web Mode Config
 (require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.cs'" . web-mode))
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-engines-alist
-      '(("angular" . "\\.html\\'"))
+      '(("angular" . "\\.html\\'")
+        ("scss"    . "\\.css\\'"))
       )
 (setq web-mode-enable-auto-pairing t)
 (setq web-mode-enable-css-colorization t)
 (setq web-mode-enable-current-element-highlight t)
 
-
 ;; Mode Settings
 (global-git-gutter-mode t)
 (indent-guide-global-mode)
 (setq indent-guide-recursive t)
+(projectile-global-mode)
+
+;; File Type Configurations
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . angular-html-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
 ;; Defaults
 (show-paren-mode 1)
@@ -41,7 +47,6 @@
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-;;(Load-theme 'solarized t)
 (add-hook 'after-make-frame-functions
           (lambda (frame)
             (let ((mode (if (display-graphic-p frame) 'light 'dark)))
@@ -51,4 +56,4 @@
 
 ;; Keybindings
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x f") 'fiplr-find-file)
+(global-set-key (kbd "C-x f") 'projectile-find-file)

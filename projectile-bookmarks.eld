@@ -1,0 +1,1 @@
+("~/Documents/mbu-frontend/" "~/Documents/mbu-server/" "~/.emacs.d/" "~/Documents/Foxden/ionic_collab/")
