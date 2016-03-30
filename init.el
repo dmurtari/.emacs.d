@@ -10,6 +10,7 @@
 (require 'auto-complete-config)
 (require 'ac-html)
 (require 'web-mode)
+(require 'whitespace)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -37,6 +38,7 @@
 (add-hook 'web-mode 'ac-html-angular+)
 
 ;; Mode Settings
+(global-whitespace-mode t)
 (global-git-gutter-mode t)
 (indent-guide-global-mode)
 (setq indent-guide-recursive t)
