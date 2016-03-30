@@ -47,7 +47,6 @@
 (setq js2-enter-indents-newline t)
 (setq js2-highlight-level 3)
 (setq js2-indent-on-enter-key t)
-(custom-set-variables '(coffee-tab-width 2))
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -56,6 +55,7 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 
 ;; Defaults
+(scroll-bar-mode -1)
 (show-paren-mode 1)
 (delete-selection-mode t)
 (transient-mark-mode t)
@@ -77,11 +77,21 @@
               (set-frame-parameter frame 'background-mode mode)
               (set-terminal-parameter frame 'background-mode mode))
             (enable-theme 'solarized)))
+(custom-set-variables
+ '(coffee-tab-width 2)
+ '(custom-enabled-themes (quote (solarized)))
+ '(custom-safe-themes
+   (quote
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))))
 
 ;; Keybindings
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
 
 ;; Function
 (defun setup-ac-for-html ()
@@ -94,3 +104,9 @@
                      ac-source-html-attrv))
   (auto-complete-mode))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
