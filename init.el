@@ -10,6 +10,7 @@
 (require 'auto-complete-config)
 (require 'ac-html)
 (require 'web-mode)
+(require 'less-css-mode)
 (require 'whitespace)
 
 ;; AutoComplete Mode Config
@@ -53,6 +54,7 @@
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
@@ -67,7 +69,7 @@
 (electric-indent-mode 1)
 (setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
-(setq tab-width 2)
+(setq-default tab-width 2)
 (setq inhibit-startup-message t)
 (setq backup-inhibited t)
 (setq auto-save-default nil)

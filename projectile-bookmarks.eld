@@ -1,1 +1,1 @@
-("~/Documents/Core/html5-client/" "~/Documents/Foxden/ionic_collab/" "~/.emacs.d/" "~/Documents/mbu-frontend/" "~/Documents/mbu-server/" "/usr/local/")
+("~/.emacs.d/" "~/Documents/Core/html5-client/" "~/Documents/Foxden/ionic_collab/" "~/Documents/mbu-frontend/" "~/Documents/mbu-server/" "/usr/local/")
