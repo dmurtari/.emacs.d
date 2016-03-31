@@ -39,6 +39,7 @@
 
 ;; Mode Settings
 (global-whitespace-mode t)
+(setq whitespace-style '(tabs trailing tab-mark spaces newline))
 (global-git-gutter-mode t)
 (indent-guide-global-mode)
 (setq indent-guide-recursive t)
