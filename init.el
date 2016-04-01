@@ -89,14 +89,25 @@
    (quote
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))))
 
+;; Macros
+(fset 'move-line-up
+   "\C-a\C-k\C-k\C-p\C-y\C-p")
+(fset 'move-line-down
+   "\C-a\C-k\C-k\C-n\C-y")
+(fset 'kill-to-start-of-line
+   "\C-[0\C-k")
+
 ;; Keybindings
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
-(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key (kbd "C-u") 'kill-to-start-of-line)
 
 ;; Functions
 (defun setup-ac-for-html ()
