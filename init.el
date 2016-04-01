@@ -12,6 +12,8 @@
 (require 'web-mode)
 (require 'less-css-mode)
 (require 'whitespace)
+(require 'typescript)
+(require 'tss)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -51,9 +53,11 @@
 (setq js2-enter-indents-newline t)
 (setq js2-highlight-level 3)
 (setq js2-indent-on-enter-key t)
+(setq typescript-indent-level 2)
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
@@ -61,6 +65,7 @@
 
 ;; Defaults
 (scroll-bar-mode -1)
+(tss-config-default)
 (show-paren-mode 1)
 (delete-selection-mode t)
 (transient-mark-mode t)
@@ -108,6 +113,9 @@
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key (kbd "C-u") 'kill-to-start-of-line)
+(setq tss-popup-help-key "C-:")
+(setq tss-jump-to-definition-key "C->")
+(setq tss-implement-definition-key "C-c i")
 
 ;; Functions
 (defun setup-ac-for-html ()
