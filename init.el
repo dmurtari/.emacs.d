@@ -1,9 +1,38 @@
+(setq my-packages '(ac-html
+                    ac-html-angular
+                    ac-html-bootstrap
+                    ac-html-csswatcher
+                    ac-js2
+                    angular-mode
+                    angular-snippets
+                    auto-complete
+                    docker
+                    dockerfile-mode
+                    git-gutter
+                    grizzl
+                    indent-guide
+                    inf-ruby
+                    js2-mode
+                    json-mode
+                    json-reformat
+                    less-css-mode
+                    magit
+                    markdown-mode
+                    projectile
+                    scss-mode
+                    skewer-mode
+                    tss
+                    web-mode
+                    ))
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
 (package-initialize)
+(mapc #'package-install my-packages)
 
 ;; Requires
 (require 'auto-complete)
