@@ -75,6 +75,7 @@
 (setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq js-indent-level 2)
 (setq inhibit-startup-message t)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
