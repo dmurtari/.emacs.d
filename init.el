@@ -73,6 +73,7 @@
 (electric-pair-mode 1)
 (electric-indent-mode 1)
 (setq-default column-number-mode t)
+(global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq js-indent-level 2)
