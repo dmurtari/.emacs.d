@@ -1,1 +1,0 @@
-(define-package "company-dict" "20160222.740" "A backend that emulates ac-source-dictionary" '((company "0.8.12")) :url "https://github.com/hlissner/emacs-company-dict" :keywords '("company" "dictionary" "ac-source-dictionary"))

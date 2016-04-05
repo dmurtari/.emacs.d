@@ -1,1 +1,0 @@
-("~/Documents/Core/html5-client/" "~/Documents/Foxden/ionic_collab/" "~/Documents/angular2-quickstart/" "~/.emacs.d/" "~/typescript-tools/" "~/Documents/mbu-frontend/" "~/Documents/mbu-server/" "/usr/local/")
