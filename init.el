@@ -11,6 +11,7 @@
                     dockerfile-mode
                     git-gutter
                     grizzl
+                    highlight-symbol
                     indent-guide
                     inf-ruby
                     js2-mode
@@ -36,6 +37,7 @@
 (mapc #'package-install my-packages)
 
 ;; Requires
+(require 'highlight-symbol)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'ac-html)
@@ -72,6 +74,7 @@
 
 ;; Mode Settings
 (global-whitespace-mode t)
+(highlight-symbol-mode t)
 (setq whitespace-style '(tabs trailing tab-mark spaces newline))
 (global-git-gutter-mode t)
 (indent-guide-global-mode)
@@ -84,6 +87,7 @@
 (setq js2-highlight-level 3)
 (setq js2-indent-on-enter-key t)
 (setq typescript-indent-level 2)
+(setq highlight-symbol-nav-mode t)
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
