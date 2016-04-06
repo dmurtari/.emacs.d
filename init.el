@@ -6,6 +6,7 @@
                     angular-mode
                     angular-snippets
                     auto-complete
+                    coffee-mode
                     docker
                     dockerfile-mode
                     git-gutter
@@ -93,6 +94,7 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 
 ;; Defaults
+(tool-bar-mode -1)
 (scroll-bar-mode -1)
 (tss-config-default)
 (show-paren-mode 1)
