@@ -9,6 +9,7 @@
                     coffee-mode
                     docker
                     dockerfile-mode
+                    feature-mode
                     git-gutter
                     grizzl
                     highlight-symbol
@@ -41,6 +42,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'ac-html)
+(require 'feature-mode)
 (require 'web-mode)
 (require 'less-css-mode)
 (require 'whitespace)
@@ -96,6 +98,7 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 
 ;; Defaults
 (tool-bar-mode -1)
