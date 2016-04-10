@@ -15,6 +15,7 @@
                     highlight-symbol
                     indent-guide
                     inf-ruby
+                    jade-mode
                     js2-mode
                     json-mode
                     json-reformat
@@ -99,6 +100,7 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
+(add-to-list 'auto-mode-alist '("\\.jade\\'" . jade-mode))
 
 ;; Defaults
 (tool-bar-mode -1)
