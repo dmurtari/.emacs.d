@@ -123,6 +123,7 @@
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(set-face-attribute 'default nil :height 110)
 (add-hook 'after-make-frame-functions
           (lambda (frame)
             (let ((mode (if (display-graphic-p frame) 'light 'dark)))
