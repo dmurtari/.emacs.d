@@ -91,6 +91,7 @@
 (setq js2-indent-on-enter-key t)
 (setq typescript-indent-level 2)
 (setq highlight-symbol-nav-mode t)
+(setq tramp-default-method "ssh")
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -156,7 +157,6 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
-(global-set-key (kbd "C-u") 'kill-to-start-of-line)
 (setq tss-popup-help-key "C-:")
 (setq tss-jump-to-definition-key "C->")
 (setq tss-implement-definition-key "C-c i")
