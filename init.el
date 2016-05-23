@@ -122,6 +122,8 @@
 (setq inhibit-startup-message t)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
+(setq ido-mode t)
+(setq ido-enable-flex-matching t)
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
