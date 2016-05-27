@@ -1,3 +1,4 @@
+
 (setq my-packages '(ac-html
                     ac-html-angular
                     ac-html-bootstrap
@@ -49,6 +50,7 @@
 (require 'whitespace)
 (require 'typescript)
 (require 'tss)
+(require 'ido)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -122,24 +124,21 @@
 (setq inhibit-startup-message t)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
-(setq ido-mode t)
+(ido-mode t)
 (setq ido-enable-flex-matching t)
+(setq global-subword-mode t)
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-(set-face-attribute 'default nil :height 110)
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (let ((mode (if (display-graphic-p frame) 'light 'dark)))
-              (set-frame-parameter frame 'background-mode mode)
-              (set-terminal-parameter frame 'background-mode mode))
-            (enable-theme 'solarized)))
+(set-face-attribute 'default nil :height 100)
+(setq-default line-spacing 3)
+(load-theme 'solarized t)
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (solarized)))
- '(custom-safe-themes
-   (quote
-    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))))
 
 ;; Macros
 (fset 'move-line-up
@@ -159,6 +158,7 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key (kbd "M-i") 'imenu)
 (setq tss-popup-help-key "C-:")
 (setq tss-jump-to-definition-key "C->")
 (setq tss-implement-definition-key "C-c i")
@@ -175,7 +175,10 @@
   (auto-complete-mode))
 
 (custom-set-faces
-
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (defun auto-complete-mode-maybe ()
