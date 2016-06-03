@@ -1,4 +1,3 @@
-
 (setq my-packages '(ac-html
                     ac-html-angular
                     ac-html-bootstrap
@@ -23,6 +22,7 @@
                     less-css-mode
                     magit
                     markdown-mode
+                    multi-term
                     projectile
                     scss-mode
                     skewer-mode
@@ -49,6 +49,7 @@
 (require 'less-css-mode)
 (require 'whitespace)
 (require 'typescript)
+(require 'multi-term)
 (require 'tss)
 (require 'ido)
 
@@ -94,6 +95,7 @@
 (setq typescript-indent-level 2)
 (setq highlight-symbol-nav-mode t)
 (setq tramp-default-method "ssh")
+(setq system-uses-terminfo nil)
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -126,6 +128,7 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq global-subword-mode t)
+(setq multi-term-program "/bin/zsh")
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
@@ -138,6 +141,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(custom-enabled-themes (quote (solarized)))
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+ '(frame-background-mode (quote dark)))
 
 ;; Macros
 (fset 'move-line-up
