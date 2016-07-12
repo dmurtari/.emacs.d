@@ -1,3 +1,6 @@
+
+(setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
+
 (setq my-packages '(ac-html
                     ac-html-angular
                     ac-html-bootstrap
@@ -15,6 +18,7 @@
                     highlight-symbol
                     indent-guide
                     inf-ruby
+                    inf-mongo
                     jade-mode
                     js2-mode
                     json-mode
@@ -23,6 +27,7 @@
                     magit
                     markdown-mode
                     multi-term
+                    nodejs-repl
                     projectile
                     scss-mode
                     skewer-mode
@@ -40,18 +45,20 @@
 (mapc #'package-install my-packages)
 
 ;; Requires
-(require 'highlight-symbol)
+(require 'ac-html)
 (require 'auto-complete)
 (require 'auto-complete-config)
-(require 'ac-html)
 (require 'feature-mode)
-(require 'web-mode)
-(require 'less-css-mode)
-(require 'whitespace)
-(require 'typescript)
-(require 'multi-term)
-(require 'tss)
+(require 'highlight-symbol)
 (require 'ido)
+(require 'less-css-mode)
+(require 'inf-mongo)
+(require 'multi-term)
+(require 'nodejs-repl)
+(require 'tss)
+(require 'typescript)
+(require 'web-mode)
+(require 'whitespace)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -160,11 +167,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-x <down>") 'windmove-down)
-(global-set-key (kbd "C-x <up>") 'windmove-up)
-(global-set-key (kbd "C-x <left>") 'windmove-left)
-(global-set-key (kbd "C-x <right>") 'windmove-right)
-(global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key (kbd "M-i") 'imenu)
 (setq tss-popup-help-key "C-:")
@@ -192,3 +194,7 @@
 (defun auto-complete-mode-maybe ()
   (unless (minibufferp (current-buffer))
     (auto-complete-mode 1)))
+
+(defun node-repl () (interactive)
+       (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive"))
+       (node-repl))
