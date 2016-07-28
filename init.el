@@ -1,4 +1,3 @@
-
 (setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
 
 (setq my-packages '(ac-html
@@ -115,6 +114,7 @@
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . jade-mode))
 
 ;; Defaults
+(setq-default cursor-type 'bar)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (tss-config-default)
@@ -137,6 +137,8 @@
 (setq ido-enable-flex-matching t)
 (setq global-subword-mode t)
 (setq multi-term-program "/bin/zsh")
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
