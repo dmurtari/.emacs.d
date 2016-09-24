@@ -50,14 +50,13 @@
 (require 'feature-mode)
 (require 'highlight-symbol)
 (require 'ido)
-(require 'less-css-mode)
 (require 'inf-mongo)
+(require 'less-css-mode)
 (require 'multi-term)
 (require 'nodejs-repl)
 (require 'tss)
 (require 'typescript)
 (require 'web-mode)
-(require 'whitespace)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -85,22 +84,20 @@
 (add-hook 'web-mode 'ac-html-angular+)
 
 ;; Mode Settings
-(global-whitespace-mode t)
-(highlight-symbol-mode t)
-(setq whitespace-style '(tabs trailing tab-mark spaces newline))
 (global-git-gutter-mode t)
+(highlight-symbol-mode t)
 (indent-guide-global-mode)
-(setq indent-guide-recursive t)
 (projectile-global-mode)
+(setq highlight-symbol-nav-mode t)
+(setq indent-guide-recursive t)
 (setq js2-basic-offset 2)
 (setq js2-bounce-indent-p t)
 (setq js2-cleanup-whitespace t)
 (setq js2-enter-indents-newline t)
 (setq js2-highlight-level 3)
 (setq js2-indent-on-enter-key t)
-(setq typescript-indent-level 2)
-(setq highlight-symbol-nav-mode t)
 (setq tramp-default-method "ssh")
+(setq typescript-indent-level 2)
 (setq system-uses-terminfo nil)
 
 ;; File Type Configurations
@@ -114,46 +111,45 @@
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . jade-mode))
 
 ;; Defaults
-(setq-default cursor-type 'bar)
-(tool-bar-mode -1)
-(tss-config-default)
-(show-paren-mode 1)
 (delete-selection-mode t)
-(transient-mark-mode t)
-(setq x-select-enable-clipboard t)
-(electric-pair-mode 1)
 (electric-indent-mode 1)
-(setq-default column-number-mode t)
+(electric-pair-mode 1)
 (global-hl-line-mode t)
+(ido-mode t)
+(scroll-bar-mode -1)
+(setq auto-save-default nil)
+(setq backup-inhibited t)
+(setq css-indent-offset 2)
+(setq global-subword-mode t)
+(setq ido-enable-flex-matching t)
+(setq inhibit-startup-message t)
+(setq js-indent-level 2)
+(setq x-select-enable-clipboard t)
+(setq-default column-number-mode t)
+(setq-default cursor-type 'bar)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-(setq js-indent-level 2)
-(setq css-indent-offset 2)
-(setq inhibit-startup-message t)
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq global-subword-mode t)
+(show-paren-mode 1)
+(tool-bar-mode -1)
+(transient-mark-mode t)
+(tss-config-default)
 (setq multi-term-program "/bin/zsh")
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
 ;; Themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
 (set-face-attribute 'default nil :height 100)
 (setq-default line-spacing 3)
-(load-theme 'solarized t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (solarized)))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(frame-background-mode (quote dark)))
 
 ;; Macros
