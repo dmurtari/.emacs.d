@@ -1,3 +1,4 @@
+
 (setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
 
 (setq my-packages '(ac-html
@@ -31,6 +32,7 @@
                     scss-mode
                     skewer-mode
                     tss
+                    vue-mode
                     web-mode
                     ))
 
@@ -109,6 +111,7 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . jade-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 
 ;; Defaults
 (delete-selection-mode t)
