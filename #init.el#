@@ -1,5 +1,33 @@
-
-(setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
+(setq my-packages '(ac-html
+                    ac-html-angular
+                    ac-html-bootstrap
+                    ac-html-csswatcher
+                    ac-js2
+                    angular-mode
+                    angular-snippets
+                    auto-complete
+                    coffee-mode
+                    docker
+                    dockerfile-mode
+                    feature-mode
+                    git-gutter
+                    grizzl
+                    highlight-symbol
+                    indent-guide
+                    inf-ruby
+                    jade-mode
+                    js2-mode
+                    json-mode
+                    json-reformat
+                    less-css-mode
+                    magit
+                    markdown-mode
+                    projectile
+                    scss-mode
+                    skewer-mode
+                    tss
+                    web-mode
+                    ))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -8,21 +36,19 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
 (package-initialize)
+(mapc #'package-install my-packages)
 
 ;; Requires
-(require 'ac-html)
+(require 'highlight-symbol)
 (require 'auto-complete)
 (require 'auto-complete-config)
+(require 'ac-html)
 (require 'feature-mode)
-(require 'highlight-symbol)
-(require 'ido)
-(require 'inf-mongo)
-(require 'less-css-mode)
-(require 'multi-term)
-(require 'nodejs-repl)
-(require 'tss)
-(require 'typescript)
 (require 'web-mode)
+(require 'less-css-mode)
+(require 'whitespace)
+(require 'typescript)
+(require 'tss)
 
 ;; AutoComplete Mode Config
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -50,21 +76,21 @@
 (add-hook 'web-mode 'ac-html-angular+)
 
 ;; Mode Settings
-(global-git-gutter-mode t)
+(global-whitespace-mode t)
 (highlight-symbol-mode t)
+(setq whitespace-style '(tabs trailing tab-mark spaces newline))
+(global-git-gutter-mode t)
 (indent-guide-global-mode)
-(projectile-global-mode)
-(setq highlight-symbol-nav-mode t)
 (setq indent-guide-recursive t)
+(projectile-global-mode)
 (setq js2-basic-offset 2)
 (setq js2-bounce-indent-p t)
 (setq js2-cleanup-whitespace t)
 (setq js2-enter-indents-newline t)
 (setq js2-highlight-level 3)
 (setq js2-indent-on-enter-key t)
-(setq tramp-default-method "ssh")
 (setq typescript-indent-level 2)
-(setq system-uses-terminfo nil)
+(setq highlight-symbol-nav-mode t)
 
 ;; File Type Configurations
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -75,52 +101,41 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 (add-to-list 'auto-mode-alist '("\\.jade\\'" . jade-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; Defaults
+(tool-bar-mode -1)
+(tss-config-default)
+(show-paren-mode 1)
 (delete-selection-mode t)
-(electric-indent-mode 1)
-(electric-pair-mode 1)
-(global-hl-line-mode t)
-(ido-mode t)
-(scroll-bar-mode -1)
-(setq auto-save-default nil)
-(setq backup-inhibited t)
-(setq css-indent-offset 2)
-(setq global-subword-mode t)
-(setq ido-enable-flex-matching t)
-(setq inhibit-startup-message t)
-(setq js-indent-level 2)
+(transient-mark-mode t)
 (setq x-select-enable-clipboard t)
+(electric-pair-mode 1)
+(electric-indent-mode 1)
 (setq-default column-number-mode t)
-(setq-default cursor-type 'bar)
+(global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-(show-paren-mode 1)
-(tool-bar-mode -1)
-(transient-mark-mode t)
-(tss-config-default)
-(setq multi-term-program "/bin/zsh")
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
+(setq inhibit-startup-message t)
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 
 ;; Themes
-(set-face-attribute 'default nil :height 100)
-(setq-default line-spacing 3)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(set-face-attribute 'default nil :height 110)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (let ((mode (if (display-graphic-p frame) 'light 'dark)))
+              (set-frame-parameter frame 'background-mode mode)
+              (set-terminal-parameter frame 'background-mode mode))
+            (enable-theme 'solarized)))
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
+ '(custom-enabled-themes (quote (solarized)))
  '(custom-safe-themes
    (quote
-    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
- '(frame-background-mode (quote dark))
- '(package-selected-packages
-   (quote
-    (skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm groovy-mode grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))))
 
 ;; Macros
 (fset 'move-line-up
@@ -134,8 +149,13 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
-(global-set-key (kbd "M-i") 'imenu)
+(global-set-key (kbd "C-u") 'kill-to-start-of-line)
 (setq tss-popup-help-key "C-:")
 (setq tss-jump-to-definition-key "C->")
 (setq tss-implement-definition-key "C-c i")
@@ -152,16 +172,9 @@
   (auto-complete-mode))
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+
  )
 
 (defun auto-complete-mode-maybe ()
   (unless (minibufferp (current-buffer))
     (auto-complete-mode 1)))
-
-(defun node-repl () (interactive)
-       (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive"))
-       (node-repl))
