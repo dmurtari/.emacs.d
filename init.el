@@ -1,39 +1,5 @@
 (setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
 
-(setq my-packages '(ac-html
-                    ac-html-angular
-                    ac-html-bootstrap
-                    ac-html-csswatcher
-                    ac-js2
-                    angular-mode
-                    angular-snippets
-                    auto-complete
-                    coffee-mode
-                    docker
-                    dockerfile-mode
-                    feature-mode
-                    git-gutter
-                    grizzl
-                    highlight-symbol
-                    indent-guide
-                    inf-ruby
-                    inf-mongo
-                    jade-mode
-                    js2-mode
-                    json-mode
-                    json-reformat
-                    less-css-mode
-                    magit
-                    markdown-mode
-                    multi-term
-                    nodejs-repl
-                    projectile
-                    scss-mode
-                    skewer-mode
-                    tss
-                    web-mode
-                    ))
-
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
@@ -41,7 +7,6 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
 (package-initialize)
-(mapc #'package-install my-packages)
 
 ;; Requires
 (require 'ac-html)
@@ -150,7 +115,10 @@
  '(custom-safe-themes
    (quote
     ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
- '(frame-background-mode (quote dark)))
+ '(frame-background-mode (quote dark))
+ '(package-selected-packages
+   (quote
+    (skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm groovy-mode grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
 
 ;; Macros
 (fset 'move-line-up
