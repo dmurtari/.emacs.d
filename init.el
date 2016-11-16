@@ -1,4 +1,3 @@
-
 (setq exec-path (append '("/Users/domenic.murtari/.nvm/versions/node/v5.10.0/bin/") exec-path))
 
 (require 'package)
@@ -70,6 +69,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
+(add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
@@ -120,7 +120,7 @@
  '(frame-background-mode (quote dark))
  '(package-selected-packages
    (quote
-    (skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm groovy-mode grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
+    (groovy-mode vue-mode skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
 
 ;; Macros
 (fset 'move-line-up
