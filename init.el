@@ -120,7 +120,7 @@
  '(frame-background-mode (quote dark))
  '(package-selected-packages
    (quote
-    (groovy-mode vue-mode skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
+    (yaml-mode groovy-mode vue-mode skewer-mode json-reformat json-mode js2-mode auto-complete web-mode tss tle smart-mode-line scss-mode rainbow-mode rainbow-delimiters pug-mode projectile nodejs-repl multiple-cursors multi-term mocha markdown-mode magit less-css-mode jade-mode inf-ruby inf-mongo indent-guide highlight-symbol helm grizzl gradle-mode git-gutter feature-mode dockerfile-mode docker company color-theme-sanityinc-tomorrow coffee-mode angular-snippets angular-mode ac-js2 ac-html-csswatcher ac-html-bootstrap ac-html-angular ac-html))))
 
 ;; Macros
 (fset 'move-line-up
