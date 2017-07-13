@@ -10,7 +10,16 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Packages to load
+(require 'ng2-mode)
+(require 'whitespace)
+(require 'git-gutter-fringe)
+
 ;; Defaults
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-git-gutter-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'editorconfig-apply)
 (delete-selection-mode t)
 (electric-indent-mode 1)
 (electric-pair-mode 1)
@@ -43,6 +52,13 @@
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key (kbd "M-i") 'imenu)
 
+(progn
+  ;; Change selected window pane with shift + arrow
+  (require 'windmove)
+  (windmove-default-keybindings)
+  (setq windmove-wrap-around t )
+  )
+
 ;; Tide Mode
 (defun setup-tide-mode ()
   (interactive)
@@ -60,6 +76,18 @@
 (add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; Theming
+(load-theme 'monokai t)
+(set-face-attribute 'default nil :height 100)
+(setq-default line-spacing 2)
+
+;; Whitespace Mode
+(progn
+  (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark)))
+  (setq whitespace-line-column 120)
+)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -72,7 +100,7 @@
     ("87233846530d0b2c50774c74c4aca06a1472504c63ccd4ab2b1021b3e56a69e9" default)))
  '(package-selected-packages
    (quote
-    (editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
+    (git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
