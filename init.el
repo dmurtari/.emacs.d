@@ -13,6 +13,7 @@
 ;; Packages to load
 (require 'ng2-mode)
 (require 'whitespace)
+(require 'vue-mode)
 (require 'git-gutter-fringe)
 
 ;; Defaults
@@ -24,6 +25,7 @@
 (electric-indent-mode 1)
 (electric-pair-mode 1)
 (global-hl-line-mode t)
+(global-whitespace-mode t)
 (ido-mode t)
 (scroll-bar-mode -1)
 (setq auto-save-default nil)
