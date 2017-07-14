@@ -33,6 +33,7 @@
 (setq ido-enable-flex-matching t)
 (setq inhibit-startup-message t)
 (setq js-indent-level 2)
+(setq typescript-indent-level 2)
 (setq x-select-enable-clipboard t)
 (setq-default column-number-mode t)
 (setq-default cursor-type 'bar)
@@ -56,8 +57,7 @@
   ;; Change selected window pane with shift + arrow
   (require 'windmove)
   (windmove-default-keybindings)
-  (setq windmove-wrap-around t )
-  )
+  (setq windmove-wrap-around t ))
 
 ;; Tide Mode
 (defun setup-tide-mode ()
@@ -75,7 +75,7 @@
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-mode-hook 'setup-tide-mode)
 
 ;; Theming
 (load-theme 'monokai t)
@@ -85,8 +85,7 @@
 ;; Whitespace Mode
 (progn
   (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark)))
-  (setq whitespace-line-column 120)
-)
+  (setq whitespace-line-column 120))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -101,9 +100,4 @@
  '(package-selected-packages
    (quote
     (git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
