@@ -15,6 +15,7 @@
 (require 'whitespace)
 (require 'vue-mode)
 (require 'git-gutter-fringe)
+(require 'multiple-cursors)
 
 ;; Defaults
 (add-hook 'after-init-hook 'global-company-mode)
@@ -101,5 +102,11 @@
     ("87233846530d0b2c50774c74c4aca06a1472504c63ccd4ab2b1021b3e56a69e9" default)))
  '(package-selected-packages
    (quote
-    (git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
+    (multiple-cursors git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
