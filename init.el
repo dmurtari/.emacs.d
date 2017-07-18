@@ -28,6 +28,7 @@
 (global-hl-line-mode t)
 (global-whitespace-mode t)
 (ido-mode t)
+(desktop-save-mode)
 (scroll-bar-mode -1)
 (setq auto-save-default nil)
 (setq backup-inhibited t)
