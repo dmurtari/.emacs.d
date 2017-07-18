@@ -16,6 +16,7 @@
 (require 'vue-mode)
 (require 'git-gutter-fringe)
 (require 'multiple-cursors)
+(require 'color-theme-sanityinc-tomorrow)
 
 ;; Defaults
 (add-hook 'after-init-hook 'global-company-mode)
@@ -83,12 +84,19 @@
 
 ;; Theming
 (load-theme 'monokai t)
+(load-theme 'ample t)
+(load-theme 'ample-flat t)
+(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-night t)
+(enable-theme 'sanityinc-tomorrow-night)
 (set-face-attribute 'default nil :height 100)
 (setq-default line-spacing 2)
+(setq mmm-submode-decoration-level 0)
 
 ;; Whitespace Mode
 (progn
-  (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark)))
+  (setq whitespace-style (quote (face tabs newline space-mark tab-mark)))
+  (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
   (setq whitespace-line-column 120))
 
 (custom-set-variables
@@ -96,14 +104,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
- '(custom-safe-themes
-   (quote
-    ("87233846530d0b2c50774c74c4aca06a1472504c63ccd4ab2b1021b3e56a69e9" default)))
  '(package-selected-packages
    (quote
-    (multiple-cursors git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
+    (color-theme-sanityinc-tomorrow ample-theme zenburn-theme multiple-cursors git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
