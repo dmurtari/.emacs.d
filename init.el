@@ -8,8 +8,6 @@
 
 (package-initialize)
 
-(add-hook 'after-init-hook 'global-company-mode)
-
 ;; Packages to load
 (require 'ng2-mode)
 (require 'whitespace)
@@ -17,6 +15,12 @@
 (require 'git-gutter-fringe)
 (require 'multiple-cursors)
 (require 'color-theme-sanityinc-tomorrow)
+
+;; Save autosave files in temp directory
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; Defaults
 (add-hook 'after-init-hook 'global-company-mode)
@@ -48,8 +52,6 @@
 (tool-bar-mode -1)
 (transient-mark-mode t)
 (setq multi-term-program "/bin/zsh")
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
 
 ;; Keybindings
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -57,30 +59,13 @@
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key (kbd "M-i") 'imenu)
-
 (progn
   ;; Change selected window pane with shift + arrow
   (require 'windmove)
   (windmove-default-keybindings)
   (setq windmove-wrap-around t ))
-
-;; Tide Mode
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-(setq tide-format-options '(:indentSize 2 :tabSize 2))
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook 'setup-tide-mode)
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 ;; Theming
 (load-theme 'monokai t)
@@ -93,11 +78,31 @@
 (setq-default line-spacing 2)
 (setq mmm-submode-decoration-level 0)
 
+;; Custom functions
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+
+
+;; MODE CUSTOMIZATIONS
+
+;; Tide Mode
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq company-tooltip-align-annotations t)
+  (setq tide-format-options '(:indentSize 2 :tabSize 2))  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
+(add-hook 'typescript-mode-hook 'setup-tide-mode)
+
 ;; Whitespace Mode
-(progn
-  (setq whitespace-style (quote (face tabs newline space-mark tab-mark)))
-  (set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
-  (setq whitespace-line-column 120))
+(setq whitespace-style (quote (face tabs newline space-mark tab-mark)))
+(set-face-attribute 'whitespace-space nil :background nil :foreground "gray30")
+(setq whitespace-line-column 120)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
