@@ -22,11 +22,14 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; Defaults
+;; Hooks
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'global-git-gutter-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'editorconfig-apply)
+(add-hook 'after-init-hook 'highlight-numbers-mode)
+
+;; Defaults
 (delete-selection-mode t)
 (electric-indent-mode 1)
 (electric-pair-mode 1)
@@ -74,6 +77,7 @@
 (load-theme 'zenburn t)
 (load-theme 'sanityinc-tomorrow-night t)
 (enable-theme 'sanityinc-tomorrow-night)
+
 (set-face-attribute 'default nil :height 100)
 (setq-default line-spacing 2)
 (setq mmm-submode-decoration-level 0)
@@ -111,7 +115,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-tomorrow ample-theme zenburn-theme multiple-cursors git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
+    (highlight-numbers color-theme-sanityinc-tomorrow ample-theme zenburn-theme multiple-cursors git-gutter-fringe darkokai-theme monokai-theme ng2-mode typescript-mode editorconfig monokai-alt-theme web-mode vue-mode tide projectile magit company))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
